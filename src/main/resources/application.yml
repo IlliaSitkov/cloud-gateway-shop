@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: REPORT-GENERATOR
+          uri: lb://REPORT-GENERATOR
+          predicates:
+            - Path=/reports/**
+        - id: ONLINE-SHOP
+          uri: lb://ONLINE-SHOP
+          predicates:
+            - Path=/products/**, /categories/**, /customers/**, /orders/**, /order_lines/**, /providers/**, /salesmen/**, /users/**, /statistics/**
+
